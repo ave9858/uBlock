@@ -3723,8 +3723,8 @@ builtinScriptlets.push({
 });
 function multiup() {
     const handler = ev => {
-        const target = ev.target;
-        if ( target.matches('button[link]') === false ) { return; }
+        const target = ev.target.closest('button[link]');
+        if ( target === null ) { return; }
         const ancestor = target.closest('form');
         if ( ancestor === null ) { return; }
         if ( ancestor !== target.parentElement ) { return; }
